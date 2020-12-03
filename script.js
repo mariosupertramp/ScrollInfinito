@@ -1,7 +1,6 @@
 
 /* Mario Hernández Yañez - maheya@gmail.com*/
 
-
 const imageContainer =  document.getElementById('image-container');
 const loader = document.getElementById('loader');
 
@@ -10,17 +9,18 @@ let imagesLoaded = 0;
 let totalImages = 0;
 let photosArray = [];
 
-const count = 10;
+const count = 20;
 const apiKey = 'UPEmRbrBYLNbpQ6fOaGhKSYESxBrvOdq7lW-1PS9onQ'; 
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
 //Checar si todas las imágenes fueron cargadas
 function imageLoaded(){
     imagesLoaded++;
-    console.log('Image loaded')
+    console.log('Imágenes cargadas...')
     if(imagesLoaded === totalImages){
         ready = true;
-        console.log('ready=', ready)
+        loader.hidden = true;
+        console.log('listo=', ready)
     }
 }
 
@@ -29,7 +29,7 @@ function imageLoaded(){
 function displayFotos() {
 imagesLoaded = 0;
 totalImages = photosArray.length;
-console.log('total images = ', totalImages)
+console.log('Total de imagenes = ', totalImages)
 
 photosArray.forEach((photo) =>{
 
